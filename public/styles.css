@@ -1,0 +1,27 @@
+/* Set up full height layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  color: hotpink;
+  font-family: sans-serif;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+  color: #555;
+}

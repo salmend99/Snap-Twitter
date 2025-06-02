@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fake Twitter</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-container">
+    <main class="content-wrap">
+      <h1>Welcome to Snap Twitter The Twitter that Doesn't save your tweets</h1>
+
+      <!-- Form to submit a new post -->
+      <form action="/submit" method="POST">
+        <textarea name="content" rows="4" cols="50" placeholder="Write something..."></textarea><br>
+        <input type="submit" value="Post">
+      </form>
+
+      <ul>
+        <% posts.forEach(post => { %>
+          <li>
+            <form action="/edit/<%= post.id %>" method="POST" style="display:inline;">
+              <input type="text" name="content" value="<%= post.content %>" />
+              <input type="submit" value="Edit">
+            </form>
+            <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+              <input type="submit" value="Delete">
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Salvatore Anthony, Full Stack Developer. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Add current year dynamically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
